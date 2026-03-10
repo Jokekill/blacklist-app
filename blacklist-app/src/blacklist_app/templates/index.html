@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+<p>{{ note }}</p>
+
+<ul>
+  <li><a href="/feeds/checkpoint.txt">Gateway feed (flat list)</a></li>
+  <li><a href="/api/v1/entries">Entries API</a></li>
+</ul>
+{% endblock %}

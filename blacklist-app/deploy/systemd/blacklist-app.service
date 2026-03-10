@@ -1,0 +1,17 @@
+[Unit]
+Description=Blacklist App (FastAPI/Uvicorn)
+After=network.target
+
+[Service]
+Type=simple
+User=blacklistapp
+Group=blacklistapp
+WorkingDirectory=/opt/blacklist-app
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONPATH=/opt/blacklist-app/src
+ExecStart=/opt/blacklist-app/.venv/bin/uvicorn blacklist_app.main:app --host 127.0.0.1 --port 8000
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
